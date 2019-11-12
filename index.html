@@ -4,20 +4,25 @@
   <head>
     <meta charset="utf-8">
     <title>Catch Ball</title>
+    <style>
+div {
+  background-color: blue;
+}
+span {
+  background-color: green;
+}
+    </style>
   </head>
   <body>
 
-    <canvas id="cadreDuJeu" width="300" height="300">
-      une balle
-    </canvas>
+    <div></div>
+    <span></span>
 
-    <script>
-var elementCadreDuJeu = document.getElementById('cadreDuJeu');
-var contexte = elementCadreDuJeu.getContext('2d');
-contexte.fillStyle = 'green';
-contexte.fillRect(10, 10, 100, 100);
-    </script>
+    <div>un premier truc dans un div</div>
+    <div>un deuxieme truc dans un div</div>
 
+    <span>un premier truc dans un span</span>
+    <span>un deuxieme truc dans un span</span>
 
   </body>
 </html>
