@@ -27,4 +27,10 @@ d.Collisions BOOM !
 Echanges entre nous : 
 la partie visuelle par Java
 
+## Différentes pistes
+
+- [carré vert avec canvas](https://github.com/adatechschool/catch-ball/tree/5d57f361dd8de02bd202e845f6eb746648a241d5)
+- [carré bleu avec html/css](https://github.com/adatechschool/catch-ball/tree/b03ee79342e5bff63563b92fbffa109782112438)
+- [différence entre div et span](https://github.com/adatechschool/catch-ball/tree/825301261edadc98767147f182fc3a4ceb328bb4)
+
 
