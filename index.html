@@ -5,19 +5,49 @@
     <meta charset="utf-8">
     <title>Catch Ball</title>
     <style>
-body {
-  background-color: yellow;
-}
-div {
-  height: 500px;
-  width: 500px;
-    background-image: url("balle.jpg");
-}
+      canvas {background: #333333 }
     </style>
   </head>
   <body>
+    <canvas id= "myCanvas" width= "1250" height= "650"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+//All the instructions are between the beginPath() and closePath() methods.
+ctx.beginPath();
+//the first two values specify the coordinates of the top left corner of the rectangle on the canvas, while the second two specify the width and height of the rectangle.
+ctx.rect(100, 100, 160, 200);
+//The fillStyle property stores a color that will be used by the fill() method to paint the square.
+ctx.fillStyle = "#FF0000";
+ctx.fill();
+ctx.closePath();
 
-    <div></div>
+
+//Green circle
+ctx.beginPath();
+/*
+    x and y coordinates of the arc's center
+    arc radius
+    start angle and end angle (what angle to start and finish drawing the circle, in radians)
+    direction of drawing (false for clockwise, the default, or true for anti-clockwise.) This last parameter is optional.
+*/
+ctx.arc(240, 160, 20, 0, Math.PI*2, false);
+ctx.fillStyle = "green";
+ctx.fill();
+//stroke of the circle
+ctx.strokeStyle = "#00FF00";
+ctx.stroke();
+ctx.closePath();
+
+//blue rect
+ctx.beginPath();
+ctx.rect(750, 300, 100, 40);
+ctx.strokeStyle = "rgba(0, 0, 255, 0.5)";
+ctx.stroke();
+ctx.closePath();
+
+    </script>
+
 
   </body>
 </html>
