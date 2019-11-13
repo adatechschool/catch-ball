@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="fr">
+<html>
 
 	<head>
 	  <meta charset="utf-8">
@@ -10,9 +10,7 @@
     	canvas { background: #333333; display: block; margin: 0 auto; }
     </style>
   </head>
-
   <body>
-  
 		<canvas id= "myCanvas" width= "1250" height= "650"></canvas>
     
 		<script>
@@ -58,6 +56,12 @@
 				else if(e.keyCode == 37) {
 						leftPressed = true;
 				}
+        else if(e.keyCode == 68) {
+          rightPressed = true;
+        }
+        else if(e.keyCode == 81) {
+          leftPressed = true;
+        }
 			}
 
 			function keyUpHandler(e) {
@@ -67,6 +71,12 @@
 				else if(e.keyCode == 37) {
 						leftPressed = false;
 				}
+        else if(e.keyCode == 68) {
+          rightPressed = false;
+        }
+        else if(e.keyCode == 81) {
+          leftPressed = false;
+        }
 			}
 
 			function draw() {
@@ -83,23 +93,8 @@
 						paddleX -= 7;
 				}
 			}
-=======
-      var ctx = canvas.getContext("2d");
-      function draw() {
-        ctx.beginPath();
-        ctx.arc(50, 50, 10, 0, Math.PI*2);
-        ctx.fillStyle = "#0095DD";
-        ctx.fill();
-        ctx.closePath();
-
-}
       setInterval(draw, 10);
 
-
-
-
     </script>
-
-
   </body>
 </html>
