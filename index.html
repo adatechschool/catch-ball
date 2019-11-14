@@ -24,14 +24,16 @@
 
 			// valeurs pour la balle
 			var x = canvas.width/2;
-			var y = canvas.height-650;
+			var y =0 ;
 			var dx = 0;
 			var dy = 2;
 
 			// valeurs pour les boutons
 			var rightPressed = false;
 			var leftPressed = false;
-			document.addEventListener("keydown", keyDownHandler, false);
+			var score = 0
+
+      document.addEventListener("keydown", keyDownHandler, false);
 			document.addEventListener("keyup", keyUpHandler, false);
 
 			// construction du Paddle
@@ -52,7 +54,20 @@
 				ctx.closePath();
 				x += dx;
 				y += dy;
-			}
+        if (canvas.height == y) {
+            y = 0 
+        }
+      }
+      
+      function affichageScore() {
+        
+        if (paddleX == x) {
+        i = i + 1
+
+        }
+      
+      }
+
 
 			// bouton enfoncé
 			function keyDownHandler(e) {
@@ -69,7 +84,11 @@
 				if(e.keyCode == 39 || e.keyCode == 68) {
 						rightPressed = false;
 				}
+<<<<<<< HEAD
+				else if(e.keyCode == 37 || e.keyCode == 81) {
+=======
 				else if(e.keyCode == 37 || e.keyCode ==81) {
+>>>>>>> b7592f6f070d9897ce8751af147ca6888de4e8a8
 						leftPressed = false;
 				}
 			}
@@ -77,10 +96,11 @@
 			// fonction qui execute/dessine les fonctions du dessus
 			function draw() {
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-				drawBall();
+        ctx.fillText('Hello world',100 , 100);
+			 	drawBall();
 
 				drawPaddle();
+        affichageScore();
 
 				if(rightPressed && paddleX < canvas.width-paddleWidth) {
 						paddleX += 7;
@@ -88,9 +108,20 @@
 				else if (leftPressed && paddleX > 0) {
 						paddleX -= 7;
 				}
+<<<<<<< HEAD
+			
+      }
+
+
+			setInterval(draw, 10);
+
+		</script>
+
+=======
 			}
       setInterval(draw, 10);
 
     </script>
+>>>>>>> b7592f6f070d9897ce8751af147ca6888de4e8a8
   </body>
 </html>
