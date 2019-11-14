@@ -17,20 +17,24 @@
       var canvas = document.getElementById("myCanvas");
       var ctx = canvas.getContext("2d");   
 
+			// valeurs pour le paddle
 			var paddleHeight = 10;
 			var paddleWidth = 75;
 			var paddleX = (canvas.width-paddleWidth) / 2;
 
+			// valeurs pour la balle
 			var x = canvas.width/2;
 			var y = canvas.height-650;
 			var dx = 0;
 			var dy = 2;
 
+			// valeurs pour les boutons
 			var rightPressed = false;
 			var leftPressed = false;
 			document.addEventListener("keydown", keyDownHandler, false);
 			document.addEventListener("keyup", keyUpHandler, false);
 
+			// construction du Paddle
 			function drawPaddle() {
 				ctx.beginPath();
 				ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
@@ -39,6 +43,7 @@
 				ctx.closePath();
 			}
 
+			// construction de la balle
 			function drawBall() {
 				ctx.beginPath();
 				ctx.arc(x, y, 10, 0, Math.PI*2);
@@ -49,36 +54,27 @@
 				y += dy;
 			}
 
+			// bouton enfoncé
 			function keyDownHandler(e) {
-				if(e.keyCode == 39) {
+				if(e.keyCode == 39 || e.keyCode == 68) {
 						rightPressed = true;
 				}
-				else if(e.keyCode == 37) {
+				else if(e.keyCode == 37 || e.keyCode == 81) {
 						leftPressed = true;
 				}
-        else if(e.keyCode == 68) {
-          rightPressed = true;
-        }
-        else if(e.keyCode == 81) {
-          leftPressed = true;
-        }
 			}
 
+			// bouton non enfoncé
 			function keyUpHandler(e) {
-				if(e.keyCode == 39) {
+				if(e.keyCode == 39 || e.keyCode == 68) {
 						rightPressed = false;
 				}
-				else if(e.keyCode == 37) {
+				else if(e.keyCode == 37 || e.keyCode ==81) {
 						leftPressed = false;
 				}
-        else if(e.keyCode == 68) {
-          rightPressed = false;
-        }
-        else if(e.keyCode == 81) {
-          leftPressed = false;
-        }
 			}
 
+			// fonction qui execute/dessine les fonctions du dessus
 			function draw() {
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
 
