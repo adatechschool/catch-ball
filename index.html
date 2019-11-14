@@ -60,9 +60,10 @@
         }
       }
       
-      function affichageScore() {
+      function increasingScore() {
         if (paddleX == x) {
-        i = i + 1
+            score = score + 1;
+            console.log('score:', score);
         }
       }
 
@@ -95,7 +96,7 @@
 
 				drawPaddle();
         
-				affichageScore();
+				increasingScore();
 
 				if(rightPressed && paddleX < canvas.width-paddleWidth) {
 						paddleX += 7;
