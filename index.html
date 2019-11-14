@@ -10,25 +10,26 @@
     	canvas { background: #333333; display: block; margin: 0 auto; }
     </style>
   </head>
-  <body>
+
+	<body>
 		<canvas id= "myCanvas" width= "1250" height= "650"></canvas>
     
 		<script>
       var canvas = document.getElementById("myCanvas");
       var ctx = canvas.getContext("2d");   
 
-			// valeurs pour le paddle
+			//valeurs pour le paddle
 			var paddleHeight = 10;
 			var paddleWidth = 75;
 			var paddleX = (canvas.width-paddleWidth) / 2;
 
-			// valeurs pour la balle
+			//valeurs pour la balle
 			var x = canvas.width/2;
 			var y =0 ;
 			var dx = 0;
 			var dy = 2;
 
-			// valeurs pour les boutons
+			//valeurs pour les boutons
 			var rightPressed = false;
 			var leftPressed = false;
 			var score = 0
@@ -36,7 +37,7 @@
       document.addEventListener("keydown", keyDownHandler, false);
 			document.addEventListener("keyup", keyUpHandler, false);
 
-			// construction du Paddle
+			//construction du Paddle
 			function drawPaddle() {
 				ctx.beginPath();
 				ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
@@ -45,7 +46,7 @@
 				ctx.closePath();
 			}
 
-			// construction de la balle
+			//construction de la balle
 			function drawBall() {
 				ctx.beginPath();
 				ctx.arc(x, y, 10, 0, Math.PI*2);
@@ -60,16 +61,12 @@
       }
       
       function affichageScore() {
-        
         if (paddleX == x) {
         i = i + 1
-
         }
-      
       }
 
-
-			// bouton enfoncé
+			//bouton enfoncé
 			function keyDownHandler(e) {
 				if(e.keyCode == 39 || e.keyCode == 68) {
 						rightPressed = true;
@@ -79,28 +76,26 @@
 				}
 			}
 
-			// bouton non enfoncé
+			//bouton non enfoncé
 			function keyUpHandler(e) {
 				if(e.keyCode == 39 || e.keyCode == 68) {
 						rightPressed = false;
 				}
-<<<<<<< HEAD
 				else if(e.keyCode == 37 || e.keyCode == 81) {
-=======
-				else if(e.keyCode == 37 || e.keyCode ==81) {
->>>>>>> b7592f6f070d9897ce8751af147ca6888de4e8a8
 						leftPressed = false;
 				}
 			}
 
-			// fonction qui execute/dessine les fonctions du dessus
+			//fonction qui execute/dessine les fonctions du dessus
 			function draw() {
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillText('Hello world',100 , 100);
-			 	drawBall();
+
+				drawBall();
 
 				drawPaddle();
-        affichageScore();
+        
+				affichageScore();
 
 				if(rightPressed && paddleX < canvas.width-paddleWidth) {
 						paddleX += 7;
@@ -108,20 +103,10 @@
 				else if (leftPressed && paddleX > 0) {
 						paddleX -= 7;
 				}
-<<<<<<< HEAD
-			
       }
 
-
 			setInterval(draw, 10);
+  	</script>
 
-		</script>
-
-=======
-			}
-      setInterval(draw, 10);
-
-    </script>
->>>>>>> b7592f6f070d9897ce8751af147ca6888de4e8a8
-  </body>
+	</body>
 </html>
