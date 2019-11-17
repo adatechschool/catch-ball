@@ -12,7 +12,7 @@
   </head>
 
 	<body>
-		<canvas id= "myCanvas" width= "1250" height= "650"></canvas>
+		<canvas id= "myCanvas" width= "1250" height= "600"></canvas>
     
 		<script>
       var canvas = document.getElementById("myCanvas");
@@ -20,7 +20,7 @@
 
 			//valeurs pour le paddle
 			var paddleHeight = 10;
-			var paddleWidth = 75;
+			var paddleWidth = 100;
 			var paddleX = (canvas.width-paddleWidth) / 2;
 
 			//valeurs pour la balle
@@ -28,6 +28,7 @@
 			var y =0 ;
 			var dx = 0;
 			var dy = 2;
+      var ballRadius = 10
 
 			//valeurs pour les boutons
 			var rightPressed = false;
@@ -40,8 +41,8 @@
 			//construction du Paddle
 			function drawPaddle() {
 				ctx.beginPath();
-				ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-				ctx.fillStyle = "#0095DD";
+				ctx.rect(paddleX, canvas.height-11, paddleWidth, paddleHeight);
+				ctx.fillStyle = "#ffffff";
 				ctx.fill();
 				ctx.closePath();
 			}
@@ -49,21 +50,28 @@
 			//construction de la balle
 			function drawBall() {
 				ctx.beginPath();
-				ctx.arc(x, y, 10, 0, Math.PI*2);
-				ctx.fillStyle = "#0095DD";
+				ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+				ctx.fillStyle = "#ffffff";
 				ctx.fill();
 				ctx.closePath();
 				x += dx;
 				y += dy;
+        //remet la balle en haut
         if (canvas.height == y) {
             y = 0 
         }
       }
       
-      function increasingScore() {
-        if (paddleX == x) {
-            score = score + 1;
-            console.log('score:', score);
+      function changingScore() {
+        if(y + dy > canvas.height-1) {
+          if(x > paddleX && x < paddleX + paddleWidth) {
+            score += 1;
+          console.log("+1", score);
+          }
+          else {
+          score -= 1;
+          console.log("-1", score);
+          }
         }
       }
 
@@ -87,17 +95,15 @@
 				}
 			}
 
-      <!--Je suis un test-->
-      <!-- fonction qui execute/dessine les fonctions du dessus-->
 			function draw() {
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillText('score:',100 , 100);
+        ctx.fillText('score: ' + score, 50, 50);
 
 				drawBall();
 
 				drawPaddle();
         
-				increasingScore();
+				changingScore();
 
 				if(rightPressed && paddleX < canvas.width-paddleWidth) {
 						paddleX += 7;
