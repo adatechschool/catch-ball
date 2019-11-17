@@ -28,12 +28,14 @@
 			var y =0 ;
 			var dx = 0;
 			var dy = 2;
-      var ballRadius = 10
 
 			//valeurs pour les boutons
 			var rightPressed = false;
 			var leftPressed = false;
-			var score = 0
+
+      //autre variables
+			var score = 0;
+      var lives = 3;
 
       document.addEventListener("keydown", keyDownHandler, false);
 			document.addEventListener("keyup", keyUpHandler, false);
@@ -50,7 +52,7 @@
 			//construction de la balle
 			function drawBall() {
 				ctx.beginPath();
-				ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+				ctx.arc(x, y, 10, 0, Math.PI*2);
 				ctx.fillStyle = "#ffffff";
 				ctx.fill();
 				ctx.closePath();
@@ -65,12 +67,14 @@
       function changingScore() {
         if(y + dy > canvas.height-1) {
           if(x > paddleX && x < paddleX + paddleWidth) {
-            score += 1;
-          console.log("+1", score);
+            score++;
           }
           else {
-          score -= 1;
-          console.log("-1", score);
+            lives--;
+            if(!lives) {
+              alert("GAME OVER");
+              document.location.reload();
+            }
           }
         }
       }
@@ -95,15 +99,26 @@
 				}
 			}
 
+      function drawScore() {
+        ctx.font = "16px Times";
+        ctx.fillStyle = "#ffffff";
+        ctx.fillText("Score: " + score, 10, 20);
+      }
+
+      function drawLives() {
+        ctx.font = "16px Times";
+        ctx.fillStyle = "#ffffff";
+        ctx.fillText("Lives: " + lives, 10, 40);
+      }
+
 			function draw() {
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillText('score: ' + score, 50, 50);
 
 				drawBall();
-
 				drawPaddle();
-        
-				changingScore();
+        drawScore();
+        drawLives();
+        changingScore();
 
 				if(rightPressed && paddleX < canvas.width-paddleWidth) {
 						paddleX += 7;
