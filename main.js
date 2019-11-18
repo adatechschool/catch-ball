@@ -1,6 +1,3 @@
-var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
-
 //autre variables
 var score = 0;
 var lives = 3;
@@ -20,13 +17,11 @@ var lives = 3;
 //   }
 // }
 
-//bouton enfoncé
-
 paddle.takeInput();
-paddle.keyDownHandler();
-paddle.keyUpHandler();
+// paddle.keyDownHandler();
+// paddle.keyUpHandler();
 
-//bouton non enfoncé
+
 function drawScore() {
   ctx.font = "16px Times";
   ctx.fillStyle = "#ffffff";
@@ -47,13 +42,6 @@ function draw() {
   drawScore();
   drawLives();
   //changingScore();
-
-  if(rightPressed && paddleX < canvas.width-paddleWidth) {
-      paddleX += 4;
-  }
-  else if (leftPressed && paddleX > 0) {
-      paddleX -= 4;
-  }
+  paddle.movePaddle()
 }
-
 setInterval(draw, 1);

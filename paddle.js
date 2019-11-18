@@ -5,8 +5,8 @@ function Paddle() {
   this.paddleX = (canvas.width - this.paddleWidth) / 2;
   this.paddleY = canvas.height - this.paddleHeight;
   this.paddleSpeed = 5;
-  this.righPressed = false; //right arrow
-  this.leftPressed = false;
+  this.rightPressed = false; //right arrow
+  this.leftPressed = false; //left arrow
   //functions
   this.drawPaddle = function() {
     ctx.beginPath();
@@ -16,16 +16,25 @@ function Paddle() {
     ctx.closePath();
   }
   this.takeInput = function() {
-    document.addEventListener("keydown", keyDownHandler, false);
-    document.addEventListener("keyup", keyUpHandler, false);
+    document.addEventListener("keydown", this.keyDownHandler, false);
+    document.addEventListener("keyup", this.keyUpHandler, false);
   }
   this.keyDownHandler = function(e) {
-    if(e.keyCode == 39) { rightPressed = true; }
-    if(e.keyCode == 37) { leftPressed = true; }
+    if(e.key == "ArrowRight") { this.rightPressed = true; }
+    if(e.key == "ArrowLeft") { this.leftPressed = true; }
   }
   this.keyUpHandler = function(e) {
-    if(e.keyCode == 39) { rightPressed = false; }
-    if(e.keyCode == 37) { leftPressed = false; }
+    if(e.key == "ArrowRight") { this.rightPressed = false; }
+    if(e.key == "ArrowLeft") { this.leftPressed = false; }
+  }
+  this.movePaddle = function() {
+    console.log(this.leftPressed, this.rightPressed)
+    if(this.rightPressed && this.paddleX < canvas.width-this.paddleWidth) {
+        this.paddleX += 4;
+    }
+    else if (this.leftPressed && this.paddleX > 0) {
+        this.paddleX -= 4;
+    }
   }
 }
 
