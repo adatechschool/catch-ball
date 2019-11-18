@@ -15,10 +15,6 @@ function Paddle() {
     ctx.fill();
     ctx.closePath();
   }
-  this.takeInput = function() {
-    document.addEventListener("keydown", this.keyDownHandler, false);
-    document.addEventListener("keyup", this.keyUpHandler, false);
-  }
   this.keyDownHandler = function(e) {
     if(e.key == "ArrowRight") { this.rightPressed = true; }
     if(e.key == "ArrowLeft") { this.leftPressed = true; }
@@ -28,7 +24,7 @@ function Paddle() {
     if(e.key == "ArrowLeft") { this.leftPressed = false; }
   }
   this.movePaddle = function() {
-    console.log(this.leftPressed, this.rightPressed)
+    console.log(this.rightPressed, this.leftPressed)
     if(this.rightPressed && this.paddleX < canvas.width-this.paddleWidth) {
         this.paddleX += 4;
     }

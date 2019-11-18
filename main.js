@@ -16,8 +16,10 @@ var lives = 3;
 //     }
 //   }
 // }
-
-paddle.takeInput();
+Paddle.prototype.listen = function() {
+  window.addEventListener("keydown", keyDownHandler().bind(this.movePaddle()), false);/*=Paddle*/
+  window.addEventListener("keyup", keyUpHandler().bind(this.movePaddle()), false);/*=Paddle*/
+}
 // paddle.keyDownHandler();
 // paddle.keyUpHandler();
 
@@ -42,6 +44,6 @@ function draw() {
   drawScore();
   drawLives();
   //changingScore();
-  paddle.movePaddle()
+  paddle.movePaddle();
 }
 setInterval(draw, 1);
