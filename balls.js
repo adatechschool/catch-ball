@@ -14,7 +14,7 @@ function Ball() {
   }
   this.moveBall = function() {
     this.ballY += this.dropSpeed;
-    if (canvas.height < this.ballY) {
+    if (canvas.height + 10 < this.ballY) {
         this.ballY = 0;
         this.ballX = Math.floor((Math.random() * canvas.width));
         this.ballColor = "#"+((1<<24)*Math.random()|0).toString(16);
