@@ -32,6 +32,11 @@ function Paddle() {
         this.paddleX -= 4;
     }
   }
+  this.returnValuesPaddle = function() {
+    paddleX = this.paddleX;
+    paddleWidth = this.paddleWidth;
+    return paddleX, paddleWidth;
+  }
 }
 
 var paddle = new Paddle();
