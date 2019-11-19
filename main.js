@@ -8,18 +8,18 @@ var ball = new Ball();
 var paddle = new Paddle();
 var score = new Score();
 
+paddle.movement();
 
-paddle.listen();
 function draw() {
+  movePaddle();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ball.drawBall();
   ball.moveBall();
-  paddle.listen();
   paddle.drawPaddle();
   score.drawScore();
   //changingScore();
-  paddle.movePaddle();
   score.calcScore(ball, paddle);
 }
+
 
 setInterval(draw, 1);

@@ -15,25 +15,24 @@ function Paddle() {
     ctx.fill();
     ctx.closePath();
   }
-  this.keyDownHandler = function(e) {
-    if(e.key == "ArrowRight") { this.rightPressed = true; }
-    if(e.key == "ArrowLeft") { this.leftPressed = true; }
+  this.movement = function() {
+    document.addEventListener("keydown", function(e) {
+      if(e.key == "ArrowRight") { this.rightPressed = true; movePaddle(this.rightPressed)}
+      if(e.key == "ArrowLeft") { this.leftPressed = true; }
+    }, false);
+    document.addEventListener("keyup", function(e) {
+      if(e.key == "ArrowRight") { this.rightPressed = false; movePaddle(this.rightPressed)}
+      if(e.key == "ArrowLeft") { this.leftPressed = false; }
+    }, false);
   }
-  this.keyUpHandler = function(e) {
-    if(e.key == "ArrowRight") { this.rightPressed = false; }
-    if(e.key == "ArrowLeft") { this.leftPressed = false; }
-  }
-  this.movePaddle = function() {
-    if(this.rightPressed && this.paddleX < canvas.width-this.paddleWidth) {
-        this.paddleX += 4;
+  movePaddle = function(rightPressed, leftPressed) {
+    console.log(rightPressed)
+    // console.log(this.rightPressed, this.leftPressed)
+    if(rightPressed == true/* && this.paddleX < canvas.width-this.paddleWidth*/) {
+      this.paddleX += 4;
     }
-    else if (this.leftPressed && this.paddleX > 0) {
-        this.paddleX -= 4;
+    else if (this.leftPressed/* && this.paddleX > 0*/) {
+      this.paddleX -= 4;
     }
   }
-}
-
-Paddle.prototype.listen = function() {
-  window.addEventListener("keydown", this.keyUpHandler, false);/*=Paddle*/
-  window.addEventListener("keyup", this.keyDownHandler, false);/*=Paddle*/
 }
