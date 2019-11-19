@@ -25,10 +25,10 @@ function Paddle() {
   }
   this.movePaddle = function() {
     if(this.rightPressed && this.paddleX < canvas.width-this.paddleWidth) {
-        this.paddleX += 4;
+      this.paddleX += 4;
     }
     else if (this.leftPressed && this.paddleX > 0) {
-        this.paddleX -= 4;
+      this.paddleX -= 4;
     }
   }
 }
