@@ -25,7 +25,8 @@ function Ball() {
     dropSpeed = this.dropSpeed;
     ballRadius = this.ballRadius;
     ballX = this.ballX;
-    return dropSpeed, ballRadius, ballX;
+    ballY = this.ballY;
+    return dropSpeed, ballRadius, ballX, ballY;
   }
 }
 

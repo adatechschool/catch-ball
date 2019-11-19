@@ -1,7 +1,7 @@
 function Score() {
   this.score = 0;
   //functions
-  this.calcScore = function(ballX, ballY, paddleX, paddleWidth) {
+  this.calcScore = function(ballX, ballY, paddleX, paddleWidth, ballRadius) {
 
   }
   this.drawScore = function() {

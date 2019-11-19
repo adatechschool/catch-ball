@@ -6,7 +6,7 @@ Paddle.prototype.listen = function() {
 // paddle.keyUpHandler();
 
 //passing critical values to calcScore
-//needs to be dynamic
+//needs to be dynamic (same problem as addEventListener)
 paddle.returnValuesPaddle();
 ball.returnValuesBalls();
 console.log(dropSpeed, ballX, ballRadius);
