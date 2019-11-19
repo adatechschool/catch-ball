@@ -1,8 +1,8 @@
 function Score() {
   this.score = 0;
   //functions
-  this.calcScore = function(ballX, ballY, paddleX, paddleWidth, ballRadius) {
-
+  this.calcScore = function(ballX, ballY, dropSpeed, paddleX, paddleWidth, ballRadius) {
+    console.log(ballX, ballY, dropSpeed, paddleX, paddleWidth, ballRadius);
   }
   this.drawScore = function() {
     ctx.font = "16px Times";

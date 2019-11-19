@@ -35,6 +35,7 @@ function Paddle() {
   this.returnValuesPaddle = function() {
     paddleX = this.paddleX;
     paddleWidth = this.paddleWidth;
+    // console.log(paddleX);
     return paddleX, paddleWidth;
   }
 }

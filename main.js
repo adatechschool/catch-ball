@@ -7,12 +7,11 @@ Paddle.prototype.listen = function() {
 
 //passing critical values to calcScore
 //needs to be dynamic (same problem as addEventListener)
+
 paddle.returnValuesPaddle();
 ball.returnValuesBalls();
-console.log(dropSpeed, ballX, ballRadius);
 
-score.calcScore();
-
+// score.calcScore(ballX, ballY, dropSpeed, paddleX, paddleWidth, ballRadius);
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ball.drawBall();
@@ -22,4 +21,5 @@ function draw() {
   //changingScore();
   paddle.movePaddle();
 }
+
 setInterval(draw, 1);
