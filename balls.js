@@ -21,13 +21,4 @@ function Ball() {
         this.ballColor = "#"+((1<<24)*Math.random()|0).toString(16);
     }
   }
-  this.returnValuesBalls = function() {
-    dropSpeed = this.dropSpeed;
-    ballRadius = this.ballRadius;
-    ballX = this.ballX;
-    ballY = this.ballY;
-    return dropSpeed, ballRadius, ballX, ballY;
-  }
 }
-
-var ball = new Ball();

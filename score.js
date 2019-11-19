@@ -1,8 +1,11 @@
 function Score() {
   this.score = 0;
   //functions
-  this.calcScore = function(ballX, ballY, dropSpeed, paddleX, paddleWidth, ballRadius) {
-    console.log(ballX, ballY, dropSpeed, paddleX, paddleWidth, ballRadius);
+  this.calcScore = function(ball, paddle) {
+    if((ball.ballY + ball.ballRadius) == (canvas.height - paddle.paddleHeight) && (paddle.paddleX <= ball.ballX && ball.ballX  <= paddle.paddleX + 100)) {
+      console.log(ball.ballX, ball.ballY, ball.dropSpeed, paddle.paddleX, paddle.paddleWidth, ball.ballRadius);
+      this.score += 1;
+    }
   }
   this.drawScore = function() {
     ctx.font = "16px Times";
@@ -18,5 +21,3 @@ function Score() {
 //     }
 //   }
 // }
-
-var score = new Score();

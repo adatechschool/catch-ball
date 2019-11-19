@@ -24,7 +24,6 @@ function Paddle() {
     if(e.key == "ArrowLeft") { this.leftPressed = false; }
   }
   this.movePaddle = function() {
-    console.log(this.rightPressed, this.leftPressed)
     if(this.rightPressed && this.paddleX < canvas.width-this.paddleWidth) {
         this.paddleX += 4;
     }
@@ -32,12 +31,9 @@ function Paddle() {
         this.paddleX -= 4;
     }
   }
-  this.returnValuesPaddle = function() {
-    paddleX = this.paddleX;
-    paddleWidth = this.paddleWidth;
-    // console.log(paddleX);
-    return paddleX, paddleWidth;
-  }
 }
 
-var paddle = new Paddle();
+Paddle.prototype.listen = function() {
+  window.addEventListener("keydown", this.keyUpHandler, false);/*=Paddle*/
+  window.addEventListener("keyup", this.keyDownHandler, false);/*=Paddle*/
+}
