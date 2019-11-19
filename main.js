@@ -13,7 +13,7 @@ var counter = 500;
 drawTime = function() {
   ctx.font = "16px Times";
   ctx.fillStyle = "#ffffff";
-  //ctx.fillText("Temps restant : " + counter, 10, 45);
+  ctx.fillText("Temps restant : " + counter, 10, 45);
 }
 
 paddle.listen();
