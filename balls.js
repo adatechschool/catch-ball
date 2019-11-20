@@ -1,7 +1,8 @@
-function Ball() {
+function Ball(delay) {
   //constructor
+  this.delay = delay
   this.ballX = Math.floor((Math.random() * canvas.width));
-  this.ballY = 0;
+  this.ballY = this.delay;
   this.dropSpeed = 2;
   this.ballColor = "#"+((1<<24)*Math.random()|0).toString(16);
   this.ballRadius = 10;
@@ -16,7 +17,7 @@ function Ball() {
   this.moveBall = function() {
     this.ballY += this.dropSpeed;
     if (canvas.height + this.ballRadius < this.ballY) {
-        this.ballY = 0;
+        this.ballY = -this.delay;
         this.ballX = Math.floor((Math.random() * canvas.width));
         this.ballColor = "#"+((1<<24)*Math.random()|0).toString(16);
     }

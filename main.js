@@ -1,15 +1,17 @@
 // paddle.keyDownHandler();
 // paddle.keyUpHandler();
-
 //passing critical values to calcScore
 //needs to be dynamic (same problem as addEventListener)
-
-var ball = new Ball();
 var paddle = new Paddle();
 var score = new Score();
 var counter = 500;
 
-paddle.movement();
+var arr = [];
+arr.push(new Ball(1000));
+arr.push(new Ball(500));
+arr.push(new Ball(0));
+
+
 
 drawTime = function() {
   ctx.font = "16px Times";
@@ -18,22 +20,29 @@ drawTime = function() {
 }
 
 function draw() {
-  movePaddle();
+  paddle.movement();
+  paddle.movePaddle();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ball.drawBall();
-  ball.moveBall();
+  arr[0].drawBall();
+  arr[0].moveBall();
+  arr[1].drawBall();
+  arr[1].moveBall();
+  arr[2].drawBall();
+  arr[2].moveBall();
   paddle.drawPaddle();
   score.drawScore();
   //changingScore();
-  score.calcScore(ball, paddle);
+  score.calcScore(arr[0], paddle);
+  score.calcScore(arr[1], paddle);
+  score.calcScore(arr[2], paddle);
   drawTime();
-  counter -= 1;
-  console.log(counter)
-  if(counter == 0) {
-	  console:log("end")
-	  document.location.reload();
-	  counter == 500
-  }
+  //console.log(counter)
+  // counter -= 1;
+  // if(counter == 0) {
+	//   console.log("end")
+	//   document.location.reload();
+	//   counter == 500
+  // }
 }
 
-setInterval(draw);
+setInterval(draw, 3);
