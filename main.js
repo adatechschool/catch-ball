@@ -30,7 +30,7 @@ function draw() {
   counter -= 1;
   console.log(counter)
   if(counter == 0) {
-	  alert("It's a wiiin ! ");
+	  console:log("end")
 	  document.location.reload();
 	  counter == 500
   }
