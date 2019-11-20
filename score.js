@@ -3,6 +3,7 @@ function Score() {
   //functions
   this.calcScore = function(ball, paddle) {
     if((ball.ballY + ball.ballRadius) == (canvas.height - paddle.paddleHeight) && (paddle.paddleX <= ball.ballX && ball.ballX  <= paddle.paddleX + 100)) {
+      console.log("test");
       this.score += 1;
     }
   }

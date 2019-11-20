@@ -6,6 +6,8 @@ var paddle = new Paddle();
 var score = new Score();
 var counter = 500;
 
+var arrIterator = 0;
+
 var arr = [];
 arr.push(new Ball(1000));
 arr.push(new Ball(500));
