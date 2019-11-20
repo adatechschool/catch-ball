@@ -9,13 +9,14 @@ var paddle = new Paddle();
 var score = new Score();
 var counter = 500;
 
+
 var arr = [];
 arr.push(new Ball());
 arr.push(new Ball());
 arr.push(new Ball());
 
 
-
+paddle.movement();
 drawTime = function() {
   ctx.font = "16px Times";
   ctx.fillStyle = "#ffffff";
@@ -23,10 +24,14 @@ drawTime = function() {
 }
 
 function draw() {
-  movePaddle();
+  paddle.movePaddle();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ball.drawBall();
-  ball.moveBall();
+  arr[0].drawBall();
+  arr[0].moveBall();
+  arr[1].drawBall();
+  arr[1].moveBall();
+  arr[2].drawBall();
+  arr[2].moveBall();
   paddle.drawPaddle();
   score.drawScore();
   //changingScore();
