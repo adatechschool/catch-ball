@@ -6,11 +6,11 @@
 
 var paddle = new Paddle();
 var score = new Score();
-var counter = 500;
 
+var ballAmount = 5;
 
 var arr = [];
-for(i = 0; i < 5; i++) {
+for(i = 0; i < ballAmount; i++) {
   arr.push(new Ball());
 }
 
