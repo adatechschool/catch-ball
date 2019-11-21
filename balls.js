@@ -2,7 +2,7 @@ function Ball() {
   //constructor
   this.ballX = Math.floor((Math.random() * canvas.width));
   this.ballY = 0;
-  this.dropSpeed = Math.random()+1.5;
+  this.dropSpeed = Math.random()*1.5 + 1.0;
   this.ballColor = "#"+((1<<24)*Math.random()|0).toString(16);
   this.ballRadius = 10;
   //ball functions
@@ -17,7 +17,8 @@ function Ball() {
     this.ballY += this.dropSpeed;
     if (canvas.height + this.ballRadius < this.ballY) {
         this.ballY = 0;
-        this.dropSpeed = Math.random()+1.5;
+        this.dropSpeed = Math.random()*1.5 + 1;
+        console.log(this.dropSpeed);
         this.ballX = Math.floor((Math.random() * canvas.width));
         this.ballColor = "#"+((1<<24)*Math.random()|0).toString(16);
     }
