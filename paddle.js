@@ -26,7 +26,7 @@ function Paddle() {
     }, false);
   }
   movePaddle = function(rightPressed, leftPressed) {
-    console.log(rightPressed)
+    // console.log(rightPressed)
     // console.log(this.rightPressed, this.leftPressed)
     if(rightPressed == true/* && this.paddleX < canvas.width-this.paddleWidth*/) {
       this.paddleX += 4;
