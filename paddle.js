@@ -9,13 +9,15 @@ function Paddle() {
   var leftPressed = false; //left arrow
   //functions
   this.drawPaddle = function() {
+    this.test;
     ctx.beginPath();
     ctx.rect(this.paddleX, this.paddleY,this.paddleWidth, this.paddleHeight);
     ctx.fillStyle = "#ffffff";
     ctx.fill();
     ctx.closePath();
   }
-  this.movePaddle = function() {
+  this.movePaddle = function()
+  this.test{
     // console.log(this.rightPressed, this.leftPressed)
     if(rightPressed == true && this.paddleX < canvas.width-this.paddleWidth) {
       this.paddleX += 4;

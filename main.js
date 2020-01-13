@@ -7,7 +7,7 @@
 var paddle = new Paddle();
 var score = new Score();
 
-var ballAmount = 5;
+var ballAmount = 20;
 
 var arr = [];
 for(i = 0; i < ballAmount; i++) {
@@ -34,15 +34,6 @@ function draw() {
     score.calcScore(arr[i], paddle);
   }
   score.drawScore();
-  //changingScore();
-  // drawTime();
-  // counter -= 1;
-  // console.log(counter)
-  // if(counter == 0) {
-	//   alert("It's a wiiin ! ");
-	//   document.location.reload();
-	//   counter == 500
-  // }
 }
 
 setInterval(draw);

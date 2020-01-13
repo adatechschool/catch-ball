@@ -1,7 +1,7 @@
 var neurone;
 
 if(neurone <= 1) {
-  while {
+  while (true){
     neurone++;
   }
 }
